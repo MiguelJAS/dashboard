@@ -9,7 +9,7 @@ const UserList = ({
 }) => {
   return (
     <>
-      <h1 className="mb-14 mt-10 text-center font-mono text-3xl font-semibold text-indigo-600">
+      <h1 className="mb-10 mt-10 text-center font-mono text-4xl font-semibold text-indigo-600">
         Lista de Usuarios
       </h1>
       <BotonCrearUsuario handleOpenForm={handleOpenForm} />
