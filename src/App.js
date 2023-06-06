@@ -1,6 +1,6 @@
 import "./App.css";
 import UserList from "./componentes/DashBoard/UserList/UserList";
-import RegisterForm from "./componentes/RegisterForm/RegisterForm";
+import RegisterForm from "./componentes/UserForm/UserForm";
 import Menu from "./componentes/DashBoard/Menu/Menu";
 import useUsers from "./hooks/useUsers";
 

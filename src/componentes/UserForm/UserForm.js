@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const RegisterForm = ({
+const UserForm = ({
   handlerAddUser,
   userUpdate,
   initialUserRegister,
@@ -188,4 +188,4 @@ const RegisterForm = ({
   );
 };
 
-export default RegisterForm;
+export default UserForm;
