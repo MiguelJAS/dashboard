@@ -1,4 +1,4 @@
-import BotonCrearUsuario from "../../Buttons/BotonCrearUsuario";
+import BotonCrearUsuario from "../Buttons/BotonCrearUsuario";
 import UserRow from "../UserRow/UserRow";
 
 const UserList = ({
@@ -27,20 +27,24 @@ const UserList = ({
                 Apellidos
               </th>
               <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+                Usuario
+              </th>
+              <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                 Email
               </th>
               <th className="px-4 py-2" />
             </tr>
           </thead>
 
-          <tbody class="divide-y divide-gray-200">
-            {users.map(({ id, firstName, surname, email }) => (
+          <tbody className="divide-y divide-gray-200">
+            {users.map(({ id, firstName, surname, username, email }) => (
               <UserRow
                 key={id}
                 id={id}
                 firstName={firstName}
                 surname={surname}
                 email={email}
+                username={username}
                 handlerRemoveUser={handlerRemoveUser}
                 handleUpdateUser={handleUpdateUser}
               />

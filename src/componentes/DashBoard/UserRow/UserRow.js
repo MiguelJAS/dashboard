@@ -2,6 +2,7 @@ const UserRow = ({
   id,
   firstName,
   surname,
+  username,
   email,
   handlerRemoveUser,
   handleUpdateUser,
@@ -11,6 +12,7 @@ const UserRow = ({
       <td className="whitespace-nowrap px-4 py-2 text-gray-700">{id}</td>
       <td className="whitespace-nowrap px-4 py-2 text-gray-700">{firstName}</td>
       <td className="whitespace-nowrap px-4 py-2 text-gray-700">{surname}</td>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700">{username}</td>
       <td className="whitespace-nowrap px-4 py-2 text-gray-700">{email}</td>
       <td className="whitespace-nowrap px-4 py-2">
         <div className="inline-flex rounded-lg border border-gray-100 bg-gray-100 p-1">
@@ -21,6 +23,7 @@ const UserRow = ({
                 id: id,
                 firstName: firstName,
                 surname: surname,
+                username: username,
                 email: email,
               })
             }
