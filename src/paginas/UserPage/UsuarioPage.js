@@ -1,12 +1,12 @@
 import "../../App.css";
-import UserForm from "../../componentes/UserForm/UserForm";
-import useUsers from "../../componentes/hooks/useUsers";
-import BotonCrearUsuario from "../../componentes/Buttons/BotonCrearUsuario";
-import UserList from "../../componentes/UserList/UserList";
-import MenuDashBoard from "../../componentes/MenuDashBoard/MenuDashBoard";
-import useAllUsers from "../../componentes/hooks/UseAllUsers";
+import useUsers from "../../hooks/useUsers";
+import BotonCrearUsuario from "../../componentes/Botones/BotonCrearUsuario";
+import NavBar from "../../componentes/NavBar/NavBar";
+import useAllUsers from "../../hooks/useAllUsers";
+import UsuarioForm from "../../componentes/UsuarioForm/UsuarioForm";
+import ListaUsuarios from "../../componentes/ListaUsuarios/ListaUsuarios";
 
-const UserPage = ({ handlerLogOut, login }) => {
+const UsuarioPage = ({ handlerLogOut, login }) => {
   const {
     users,
     userUpdate,
@@ -29,7 +29,7 @@ const UserPage = ({ handlerLogOut, login }) => {
             <div className="modal-dialog" role="document">
               <div className="modal-content">
                 <div className="modal-body">
-                  <UserForm
+                  <UsuarioForm
                     handlerAddUser={handlerAddUser}
                     initialUserRegister={initialUserRegister}
                     userUpdate={userUpdate}
@@ -42,7 +42,7 @@ const UserPage = ({ handlerLogOut, login }) => {
         </div>
       ) : (
         <div className="flex columns-2">
-          <MenuDashBoard handlerLogOut={handlerLogOut} login={login} />
+          <NavBar handlerLogOut={handlerLogOut} login={login} />
           {!visibleForm ? (
             <div className="md:container md:mx-auto">
               <div className="">
@@ -58,7 +58,7 @@ const UserPage = ({ handlerLogOut, login }) => {
                     <p>No hay usuarios en el sistema!</p>
                   </div>
                 ) : (
-                  <UserList
+                  <ListaUsuarios
                     users={users}
                     handlerRemoveUser={handlerRemoveUser}
                     handleUpdateUser={handleUpdateUser}
@@ -75,4 +75,4 @@ const UserPage = ({ handlerLogOut, login }) => {
   );
 };
 
-export default UserPage;
+export default UsuarioPage;

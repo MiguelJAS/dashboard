@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import getAllUsers from "../../servicios/getAllUsers";
+import { getAllUsers } from "../servicios/getAllUsers";
 
 const useAllUsers = () => {
   const [listaUsuarios, setListaUsuarios] = useState([]);

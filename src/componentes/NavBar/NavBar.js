@@ -1,4 +1,4 @@
-const MenuDashBoard = () => {
+const NavBar = () => {
   return (
     <div className="flex h-screen w-16 flex-col justify-between border-e bg-white">
       <div>
@@ -116,4 +116,4 @@ const MenuDashBoard = () => {
   );
 };
 
-export default MenuDashBoard;
+export default NavBar;

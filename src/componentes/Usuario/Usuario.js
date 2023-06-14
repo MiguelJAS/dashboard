@@ -1,19 +1,22 @@
-const UserRow = ({
+const Usuario = ({
   id,
-  firstName,
-  surname,
-  username,
+  nombre,
+  apellidos,
+  usuario,
   email,
+  telefono,
   handlerRemoveUser,
   handleUpdateUser,
 }) => {
   return (
     <tr key={id} className="text-center">
       <td className="whitespace-nowrap px-4 py-2 text-gray-700">{id}</td>
-      <td className="whitespace-nowrap px-4 py-2 text-gray-700">{firstName}</td>
-      <td className="whitespace-nowrap px-4 py-2 text-gray-700">{surname}</td>
-      <td className="whitespace-nowrap px-4 py-2 text-gray-700">{username}</td>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700">{nombre}</td>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700">{apellidos}</td>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700">{usuario}</td>
       <td className="whitespace-nowrap px-4 py-2 text-gray-700">{email}</td>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700">{telefono}</td>
+
       <td className="whitespace-nowrap px-4 py-2">
         <div className="inline-flex rounded-lg border border-gray-100 bg-gray-100 p-1">
           <button
@@ -21,10 +24,11 @@ const UserRow = ({
             onClick={() =>
               handleUpdateUser({
                 id: id,
-                firstName: firstName,
-                surname: surname,
-                username: username,
+                nombre: nombre,
+                apellidos: apellidos,
+                usuario: usuario,
                 email: email,
+                telefono: telefono,
               })
             }
           >
@@ -70,4 +74,4 @@ const UserRow = ({
   );
 };
 
-export default UserRow;
+export default Usuario;

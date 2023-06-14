@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react";
-import usersReducer from "./usersReducer";
+import usersReducer from "../reducers/usersReducer";
 import Swal from "sweetalert2";
 
 const useUsers = () => {

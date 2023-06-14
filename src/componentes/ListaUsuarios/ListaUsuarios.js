@@ -1,8 +1,8 @@
-import BotonCrearUsuario from "../Buttons/BotonCrearUsuario";
-import UserRow from "../UserRow/UserRow";
+import BotonCrearUsuario from "../Botones/BotonCrearUsuario";
+import Usuario from "../Usuario/Usuario";
 
-const UserList = ({
-  users = [],
+const ListaUsuarios = ({
+  listaUsuarios,
   handlerRemoveUser,
   handleUpdateUser,
   handleOpenForm,
@@ -37,18 +37,21 @@ const UserList = ({
           </thead>
 
           <tbody className="divide-y divide-gray-200">
-            {users.map(({ id, firstName, surname, username, email }) => (
-              <UserRow
-                key={id}
-                id={id}
-                firstName={firstName}
-                surname={surname}
-                email={email}
-                username={username}
-                handlerRemoveUser={handlerRemoveUser}
-                handleUpdateUser={handleUpdateUser}
-              />
-            ))}
+            {listaUsuarios.map(
+              ({ id, nombre, apellidos, usuario, email, telefono }) => (
+                <Usuario
+                  key={id}
+                  id={id}
+                  nombre={nombre}
+                  apellidos={apellidos}
+                  email={email}
+                  usuario={usuario}
+                  telefono={telefono}
+                  handlerRemoveUser={handlerRemoveUser}
+                  handleUpdateUser={handleUpdateUser}
+                />
+              )
+            )}
           </tbody>
         </table>
       </div>
@@ -56,4 +59,4 @@ const UserList = ({
   );
 };
 
-export default UserList;
+export default ListaUsuarios;

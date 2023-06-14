@@ -1,10 +1,10 @@
 import { Route } from "wouter";
-import UserPage from "./paginas/UserPage/UserPage";
+import UsuarioPage from "./paginas/UserPage/UsuarioPage";
 
 const App = () => {
   return (
     <>
-      <Route path="/dashboard" component={UserPage}></Route>
+      <Route path="/dashboard" component={UsuarioPage}></Route>
     </>
   );
 };
