@@ -1,9 +1,10 @@
 import "../../App.css";
-import UserForm from "../../componentes/DashBoard/UserForm/UserForm";
-import useUsers from "../../componentes/DashBoard/hooks/useUsers";
-import BotonCrearUsuario from "../../componentes/DashBoard/Buttons/BotonCrearUsuario";
-import UserList from "../../componentes/DashBoard/UserList/UserList";
-import MenuDashBoard from "../../componentes/DashBoard/MenuDashBoard/MenuDashBoard";
+import UserForm from "../../componentes/UserForm/UserForm";
+import useUsers from "../../componentes/hooks/useUsers";
+import BotonCrearUsuario from "../../componentes/Buttons/BotonCrearUsuario";
+import UserList from "../../componentes/UserList/UserList";
+import MenuDashBoard from "../../componentes/MenuDashBoard/MenuDashBoard";
+import useAllUsers from "../../componentes/hooks/UseAllUsers";
 
 const UserPage = ({ handlerLogOut, login }) => {
   const {
@@ -17,6 +18,8 @@ const UserPage = ({ handlerLogOut, login }) => {
     handleOpenForm,
     handleCloseForm,
   } = useUsers();
+
+  const { listaUsuarios, buscando } = useAllUsers();
 
   return (
     <>
@@ -60,6 +63,7 @@ const UserPage = ({ handlerLogOut, login }) => {
                     handlerRemoveUser={handlerRemoveUser}
                     handleUpdateUser={handleUpdateUser}
                     handleOpenForm={handleOpenForm}
+                    listaUsuarios={listaUsuarios}
                   />
                 )}
               </div>
