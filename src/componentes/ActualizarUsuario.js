@@ -1,9 +1,13 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useRoute } from "wouter";
+import useIdUser from "../hooks/useIdUser";
+import { updateUser } from "../servicios/updateUser";
 
-const ActualizarUsuario = () => {
+const ActualizarUsuario = (props) => {
+  const { usuario, buscando } = useIdUser(props.params.id);
+
+  console.log(usuario.id);
+
   const usuarioInicial = {
     id: "",
     nombre: "",
@@ -14,47 +18,21 @@ const ActualizarUsuario = () => {
     telefono: "",
   };
 
-  const [usuario, setUsuario] = useState(usuarioInicial);
+  const [initialUser, setUsuario] = useState(usuarioInicial);
   const navigate = useNavigate();
-
-  const [match] = useRoute("/dashboard/usuarios/update/:id");
-  const id = match ? match.params.id : "";
-  console.log(id);
-
-  useEffect(() => {
-    // Obtener los datos del usuario a editar al cargar el formulario
-    axios
-      .get(`http://localhost:8080/api/usuarios/${id}`)
-      .then((response) => {
-        setUsuario(response.data);
-        console.log("ID:", id);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [id]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    axios
-      .put(`http://localhost:8080/api/usuarios/${id}`, usuario)
-      .then(function (response) {
-        console.log(response);
-        navigate("/dashboard"); // Redireccionar a la ruta dashboard
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-
-    setUsuario(usuarioInicial);
+    updateUser(usuario.id, usuario);
+    setUsuario(initialUser);
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    let newValue = value;
     setUsuario((prevState) => ({
       ...prevState,
-      [name]: value,
+      [name]: newValue,
     }));
   };
 
@@ -182,7 +160,7 @@ const ActualizarUsuario = () => {
           </div>
 
           <div className="flex justify-between">
-            <Link to="/dashboard/usuarios">
+            <Link to={`/dashboard/usuarios/`}>
               <button
                 type="button"
                 className="inline-block rounded-lg bg-red-600 px-5 py-3 text-sm font-medium text-white"
