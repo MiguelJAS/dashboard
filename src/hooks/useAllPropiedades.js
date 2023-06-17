@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { getAllUsuarios } from "../servicios/getAllUsuarios";
+import { getAllPropiedades } from "../servicios/getAllPropiedades";
 
-const useAllUsers = () => {
-  const [listaUsuarios, setListaUsuarios] = useState([]);
+const useAllPropiedades = () => {
+  const [listaPropiedades, setListaPropiedades] = useState([]);
   const [buscando, setBuscando] = useState(true);
 
-  function obtenerAllUsers() {
+  function obtenerPropiedades() {
     //Marcamos que estamos buscando los datos
     setBuscando(true);
     // Usamos el servicio de obtención de posts que hemos creado
-    getAllUsuarios().then((usuarios) => {
+    getAllPropiedades().then((propiedades) => {
       //Cargamos los post en el estado del componente
-      setListaUsuarios(usuarios);
+      setListaPropiedades(propiedades);
       //Indicamos que hemos terminado de cargar los datos
       setBuscando(false);
     });
@@ -19,8 +19,8 @@ const useAllUsers = () => {
 
   // Llamamos a la función de extracción de datos con un useEffect
   // para que solo se ejecute una vez
-  useEffect(obtenerAllUsers, []);
+  useEffect(obtenerPropiedades, []);
   //La lista de viviendas que devolvemos es la cual cuya página hemos pasado a este hook
-  return { buscando, listaUsuarios };
+  return { buscando, listaPropiedades };
 };
-export default useAllUsers;
+export default useAllPropiedades;
